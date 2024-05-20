@@ -284,7 +284,7 @@ function generarNavBar() {
 
 function generarHTMLHeader() {
     const headerHTML = `
-        <h1>Titulo de mi web</h1>`;
+        <h1>Administrador de<br>Monedas</h1>`;
     return headerHTML;
 }
 
