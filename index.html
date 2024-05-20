@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="./styles/newStyles.css">
+    <script src="./scripts/scripts_async.js" type="module"></script>
+    <script src="./scripts/spinner.js" type="module"></script>
+    <title>ABM y Form</title>
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <div class="container-sections">
+        <section>
+            <form action="" method="post" id="form-item">
+                <input type="number" name="id" id="id" hidden />
+
+                <div class="form-group">
+                    <label for="titulo">Titulo:</label>
+                    <input type="text" name="titulo" id="titulo" autocomplete="off" placeholder="Titulo">
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <label>Transaccion</label>
+                        <label for="venta">Venta</label>
+                        <input type="radio" name="transaccion" id="venta" value="venta" checked>
+                        <label for="alquiler">Alquiler</label>
+                        <input type="radio" name="transaccion" id="alquiler" value="alquiler">
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripcion:</label>
+                    <input type="text" name="descripcion" id="descripcion" autocomplete="off" placeholder="Descripcion">
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Precio:</label>
+                    <input type="text" name="precio" id="precio" autocomplete="off" placeholder="Precio">
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Puertas:</label>
+                    <input type="text" name="puertas" id="puertas" autocomplete="off" placeholder="Puertas">
+
+                    <label for="descripcion">KMs:</label>
+                    <input type="text" name="kms" id="kms" autocomplete="off" placeholder="KMs">
+
+                    <label for="descripcion">Velocidad:</label>
+                    <input type="text" name="potencia" id="potencia" autocomplete="off" placeholder="Velocidad">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Guardar</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <div id="spinner" class="spinner">
+        <img src="./images/wheel.png" alt="Spinner" class="spinner-img">
+    </div>
+
+    <div class="container-table flex">
+        <table id="table-items" class="table-items table-stripped flex">
+            <thead>
+                <tr class="flex" data-id="">
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Transaccion</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Puertas</th>
+                    <th>Kilometros</th>
+                    <th>Potencia</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!--    ACA VOY A COMPLETAR LA INFO DINAMICAMENTE DEL LOCAL STORAGE -->
+            </tbody>
+        </table>
+        <button type="button" id="btn-delete-all" class="btn">Borrar todo</button>
+    </div>
+
+    <footer id="footer">
+    </footer>
+
+</body>
+</html>
