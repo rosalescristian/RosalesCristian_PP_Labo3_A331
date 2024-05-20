@@ -195,42 +195,6 @@ function borrarRegistro(id) {
   }
 }
 
-/* function escuchandoFormulario() {
-    formulario.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const fechaActual = new Date();
-
-        const model = new anuncio_Auto(
-            fechaActual.getTime(),
-            formulario.querySelector("#titulo").value,
-            formulario.querySelector('input[name="transaccion"]:checked').value,
-            formulario.querySelector("#descripcion").value,
-            formulario.querySelector("#precio").value,
-            formulario.querySelector("#puertas").value,
-            formulario.querySelector("#kms").value,
-            formulario.querySelector("#potencia").value,
-        );
-
-        const rta = model.verify();
-
-        if (rta) {
-            mostrarSpinner();
-            items.push(model);
-            const str = objectToJson(items);
-            try {
-                await escribir(KEY_STORAGE, str);
-                actualizarFormulario();
-                rellenarTabla();
-            } catch (error) {
-                alert(error);
-            }
-            ocultarSpinner();
-        } else {
-            alert("Error en la carga de datos! Hay información incorrecta o incompleta. Verifique.");
-        }
-    });
-}
- */
 
 function escuchandoFormulario() {
     formulario.addEventListener("submit", async (e) => {
@@ -326,7 +290,7 @@ function generarHTMLHeader() {
 
 function generarHTMLFooter() {
     const footerHTML = `
-        <p>Todos los derechos reservados 2024 &copy | By Cristian Rosales - UTN : Laboratorio III - Simulacro</p>`;
+        <p>Todos los derechos reservados 2024 &copy | By Cristian Rosales - UTN : Laboratorio III - 1er Parcial</p>`;
     return footerHTML;
 }
 
