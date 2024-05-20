@@ -15,48 +15,59 @@
     </header>
     <div class="container-sections">
         <section>
-            <form action="" method="post" id="form-item">
-                <input type="number" name="id" id="id" hidden />
+            <fieldset>Informacion de la moneda
+                <form action="" method="post" id="form-item">
+                    <input type="number" name="id" id="id" hidden />
+                    
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" name="nombre" id="nombre" autocomplete="off" placeholder="Ingrese nombre...">
+                    </div>
 
-                <div class="form-group">
-                    <label for="titulo">Titulo:</label>
-                    <input type="text" name="titulo" id="titulo" autocomplete="off" placeholder="Titulo">
-                </div>
+                    <div class="form-group">
+                        <label for="simbolo">Simbolo:</label>
+                        <input type="text" name="simbolo" id="simbolo" autocomplete="off" placeholder="Ingrese el Simbolo...">
+                    </div>
 
-                <div class="form-group">
-                    <fieldset>
-                        <label>Transaccion</label>
-                        <label for="venta">Venta</label>
-                        <input type="radio" name="transaccion" id="venta" value="venta" checked>
-                        <label for="alquiler">Alquiler</label>
-                        <input type="radio" name="transaccion" id="alquiler" value="alquiler">
-                    </fieldset>
-                </div>
+                    <div class="form-group">
+                        <label for="precioActual">Precio Actual:</label>
+                        <input type="text" name="precioActual" id="precioActual" autocomplete="off" placeholder="Ingrese Precio...">
+                    </div>
 
-                <div class="form-group">
-                    <label for="descripcion">Descripcion:</label>
-                    <input type="text" name="descripcion" id="descripcion" autocomplete="off" placeholder="Descripcion">
-                </div>
+                    <div class="form-group">
+                            <label for="opciones">Tipo de Consumo</label>
+                            <select name="opciones" id="opciones">
+                                <option value="opcion1" selected>Seleccione Opcion</option>
+                                <option value="opcion2">Proof of Work</option>
+                                <option value="opcion3">Proof of Stake</option>
+                            </select>
+                    </div>
 
-                <div class="form-group">
-                    <label for="descripcion">Precio:</label>
-                    <input type="text" name="precio" id="precio" autocomplete="off" placeholder="Precio">
-                </div>
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad en Circulacion:</label>
+                        <input type="text" name="cantidad" id="cantidad" autocomplete="off" placeholder="Ingrese Cantidad...">
 
-                <div class="form-group">
-                    <label for="descripcion">Puertas:</label>
-                    <input type="text" name="puertas" id="puertas" autocomplete="off" placeholder="Puertas">
+                    <div class="form-group">
+                        <label for="opciones">Algoritmo:</label>
+                        <select name="opciones" id="opciones">
+                            <option value="opcion1" selected>Seleccione Opcion</option>
+                            <option value="opcion2">SHA-256</option>
+                            <option value="opcion3">Ethash</option>
+                            <option value="opcion4">Script</option>
+                            <option value="opcion5">X11</option>
+                        </select>
+                    </div>
 
-                    <label for="descripcion">KMs:</label>
-                    <input type="text" name="kms" id="kms" autocomplete="off" placeholder="KMs">
-
-                    <label for="descripcion">Velocidad:</label>
-                    <input type="text" name="potencia" id="potencia" autocomplete="off" placeholder="Velocidad">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn">Guardar</button>
-                </div>
-            </form>
+                        <label for="web">Sitio Web Oficial:</label>
+                        <input type="text" name="web" id="web" autocomplete="off" placeholder="Ingrese Sitio...">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn">Guardar</button>
+                        <button type="button" id="btn-cancelar" class="btn">Cancelar</button>
+                        <button type="button" id="btn-Eliminar" class="btn">Eliminar</button>
+                    </div>
+                </form>
+            </fieldset>
         </section>
     </div>
 
