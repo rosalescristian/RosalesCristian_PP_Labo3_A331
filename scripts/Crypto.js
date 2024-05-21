@@ -1,15 +1,18 @@
-import { Anuncio } from "./anuncio.js";
+import { CryptoBase } from "./CryptoBase.js";
 
-export class anuncio_Auto extends Anuncio{
-    constructor(id, titulo, transaccion, descripcion, precio, puertas, kilometros, potencia) {
-      super(id,titulo,transaccion,descripcion,precio);
-        this.puertas = puertas;
-        this.kilometros = kilometros;
-        this.potencia = potencia;
+export class Crypto extends CryptoBase{
+    constructor(id, nombre, simbolo, fechaCreacion, precioActual, consenso, cantidad, algoritmo, web) {
+      super(id, nombre, simbolo, fechaCreacion, precioActual);
+        this.consenso = consenso;
+        this.cantidad = cantidad;
+        this.algoritmo = algoritmo;
+        this.web = web;
     }
   
     verify() {
-      if(this.isValidString(this.titulo, this.descripcion) && this.isValidNumber(this.precio,this.puertas,this.kilometros,this.potencia))
+      if( this.isValidString(this.nombre, this.simbolo, this.consenso, this.algoritmo) && 
+          this.isValidNumber(this.precioActual,this.cantidad)/*  &&
+          this.isValidURL(this.web) */)
         {
           return true;
         }
@@ -26,5 +29,16 @@ export class anuncio_Auto extends Anuncio{
       const numeros = args.map(arg=>parseInt(arg)); 
       return numeros.every(numero => typeof numero === 'number' && !isNaN(numero) && numero > 0);
     };
+
+    /* isValidURL(...args){
+      if(this.isValidString(this.web)){
+        try {
+          new URL(web);
+          return true;
+      } catch (e) {
+          return false;
+      }
+      }
+    } */
   
 }

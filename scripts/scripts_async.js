@@ -1,10 +1,10 @@
-import { anuncio_Auto } from "./anuncio_Auto.js";
+import { Crypto } from "./Crypto.js";
 import { leer, escribir, limpiar, jsonToObject, objectToJson } from "./local_storage_async.js";
 import { mostrarSpinner, ocultarSpinner } from "./spinner.js";
 
 let items = [];
 let formulario = null;
-const KEY_STORAGE = "autos";
+const KEY_STORAGE = "cryptos";
 
 window.addEventListener("DOMContentLoaded", onInit);
 
@@ -26,28 +26,30 @@ async function loadItems() {
     const objetos = jsonToObject(str) || [];
 
     objetos.forEach(obj => {
-        const model = new anuncio_Auto(
+        const model = new Crypto(
             obj.id,
-            obj.titulo,
-            obj.transaccion,
-            obj.descripcion,
-            obj.precio,
-            obj.puertas,
-            obj.kilometros,
-            obj.potencia
+            obj.nombre,
+            obj.simbolo,
+            obj.fechaCreacion,
+            obj.precioActual,
+            obj.consenso,
+            obj.cantidad,
+            obj.algoritmo,
+            obj.web
         );
         items.push(model);
     });
     items = objetos.map((obj) => {
-        return new anuncio_Auto(
+        return new Crypto(
             obj.id,
-            obj.titulo,
-            obj.transaccion,
-            obj.descripcion,
-            obj.precio,
-            obj.puertas,
-            obj.kilometros,
-            obj.potencia
+            obj.nombre,
+            obj.simbolo,
+            obj.fechaCreacion,
+            obj.precioActual,
+            obj.consenso,
+            obj.cantidad,
+            obj.algoritmo,
+            obj.web
         );
     });
     rellenarTabla();
@@ -60,7 +62,7 @@ function rellenarTabla() {
     const tbody = tabla.getElementsByTagName("tbody")[0];
     tbody.innerHTML = '';
 
-    const celdas = ["id", "titulo", "transaccion", "descripcion", "precio", "puertas", "kilometros", "potencia"];
+    const celdas = ["id", "nombre", "simbolo", "fechaCreacion", "precioActual", "consenso", "cantidad", "algoritmo", "web"];
 
     items.forEach((item) => {
         let nuevaFila = document.createElement("tr");
@@ -114,22 +116,23 @@ function editarRegistro(id) {
 
         // Llena el formulario con los datos del registro seleccionado
         formulario.querySelector("#id").value = item.id;
-        formulario.querySelector("#titulo").value = item.titulo;
+        formulario.querySelector("#nombre").value = item.nombre;
+        formulario.querySelector("#simbolo").value = item.simbolo;
+        //formulario.querySelector("#fechaCreacion").value = item.fechaCreacion;
+        formulario.querySelector("#precioActual").value = item.precioActual;
+        //formulario.querySelector("#consenso").value = item.consenso;
+        formulario.querySelector("#cantidad").value = item.cantidad;
+        //formulario.querySelector("#algoritmo").value = item.algoritmo;
+        formulario.querySelector("#web").value = item.web;
         
-        const transaccionVenta = formulario.querySelector("#venta");
-        const transaccionAlquiler = formulario.querySelector("#alquiler");
-        
-        if (item.transaccion === "venta") {
-            transaccionVenta.checked = true;
-        } else if (item.transaccion === "alquiler") {
-            transaccionAlquiler.checked = true;
-        }
-
-        formulario.querySelector("#descripcion").value = item.descripcion;
-        formulario.querySelector("#precio").value = item.precio;
-        formulario.querySelector("#puertas").value = item.puertas;
-        formulario.querySelector("#kms").value = item.kilometros;
-        formulario.querySelector("#potencia").value = item.potencia;
+        const nombre = formulario.querySelector("#nombre").value;
+        const simbolo = formulario.querySelector("#simbolo").value;
+        //const fechaCreacion = new Date().toLocaleDateString();
+        const precioActual = formulario.querySelector("#precioActual").value;
+        const consenso = formulario.querySelector("#consenso").value;
+        const cantidad = formulario.querySelector("#cantidad").value;
+        const algoritmo = formulario.querySelector("#algoritmo").value;
+        const web = formulario.querySelector("#web").value;
 
         // Elimina el evento de envío existente y agrega uno nuevo
         formulario.removeEventListener("submit", onSubmitEditar);
@@ -141,15 +144,16 @@ function editarRegistro(id) {
 
             if (itemIndex !== -1) {
                 const fechaActual = new Date();
-                const model = new anuncio_Auto(
+                const model = new Crypto(
                     id,
-                    formulario.querySelector("#titulo").value,
-                    formulario.querySelector('input[name="transaccion"]:checked').value,
-                    formulario.querySelector("#descripcion").value,
-                    formulario.querySelector("#precio").value,
-                    formulario.querySelector("#puertas").value,
-                    formulario.querySelector("#kms").value,
-                    formulario.querySelector("#potencia").value,
+                    nombre,
+                    simbolo,
+                    fechaCreacion,
+                    precioActual,
+                    consenso,
+                    cantidad,
+                    algoritmo,
+                    web
                 );
 
                 const rta = model.verify();
@@ -195,29 +199,46 @@ function borrarRegistro(id) {
   }
 }
 
-
 function escuchandoFormulario() {
     formulario.addEventListener("submit", async (e) => {
         e.preventDefault();
-        const fechaActual = new Date();
-        const id = formulario.querySelector("#id").value;
+        
+        const id = new Date();
+        const nombre = formulario.querySelector("#nombre").value;
+        const simbolo = formulario.querySelector("#simbolo").value;
+        const fechaCreacion = new Date().toLocaleDateString();
+        const precioActual = formulario.querySelector("#precioActual").value;
+        const consenso = formulario.querySelector("#consenso").value;
+        const cantidad = formulario.querySelector("#cantidad").value;
+        const algoritmo = formulario.querySelector("#algoritmo").value;
+        const web = formulario.querySelector("#web").value;
+        
+        //console.log(id, nombre, simbolo, fechaCreacion, precioActual, consenso, cantidad,algoritmo,web);
+
+        // Buscar si ya existe un elemento con el mismo id
         const modelIndex = items.findIndex((item) => item.id == id);
-
+        
         if (modelIndex !== -1) {
-            const model = items[modelIndex];
-            model.titulo = formulario.querySelector("#titulo").value;
-            model.transaccion = formulario.querySelector('input[name="transaccion"]:checked').value;
-            model.descripcion = formulario.querySelector("#descripcion").value;
-            model.precio = formulario.querySelector("#precio").value;
-            model.puertas = formulario.querySelector("#puertas").value;
-            model.kilometros = formulario.querySelector("#kms").value;
-            model.potencia = formulario.querySelector("#potencia").value;
+            editarRegistro()
+        } else {
+            // Crear un nuevo modelo
+            const newModel = new Crypto(
+                id,
+                nombre,
+                simbolo,
+                fechaCreacion,
+                precioActual,
+                consenso,
+                cantidad,
+                algoritmo,
+                web
+            );
 
-            const rta = model.verify();
+            const rta = newModel.verify();
 
             if (rta) {
                 mostrarSpinner();
-                items[modelIndex] = model;
+                items.push(newModel);
                 const str = objectToJson(items);
                 try {
                     await escribir(KEY_STORAGE, str);
@@ -230,11 +251,11 @@ function escuchandoFormulario() {
             } else {
                 alert("Error en la carga de datos! Hay información incorrecta o incompleta. Verifique.");
             }
-        } else {
-            alert("No se pudo encontrar el registro para editar.");
         }
     });
 }
+
+
 function actualizarFormulario() {
     if (formulario) {
         formulario.reset();
@@ -269,6 +290,9 @@ function escuchandoBtnDeleteAll(){
   });
 }
 
+
+/*      LOGICA NAVBAR - HEADER Y FOOTER     */
+
 function generarNavBar() {
     const navBarHTML = `
         <nav>
@@ -284,7 +308,8 @@ function generarNavBar() {
 
 function generarHTMLHeader() {
     const headerHTML = `
-        <h1>Administrador de<br>Monedas</h1>`;
+        <h1>Crispy Cryptos</h1>
+        <h2>Administrador de<br>Monedas</h2>`;
     return headerHTML;
 }
 

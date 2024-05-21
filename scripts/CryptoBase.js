@@ -1,15 +1,15 @@
 
-export class Anuncio {
-    constructor(id, titulo, transaccion, descripcion, precio) {
+export class CryptoBase {
+    constructor(id, nombre, simbolo, fechaCreacion, precioActual) {
       this.id = id;
-      this.titulo = titulo;
-      this.transaccion = transaccion;
-      this.descripcion = descripcion;
-      this.precio = precio;
+      this.nombre = nombre;
+      this.simbolo = simbolo;
+      this.fechaCreacion = fechaCreacion; //CREAR VALIDACION DE FECHA
+      this.precioActual = precioActual;
     }
   
     verify() {
-      if(this.isValidString(this.titulo, this.descripcion) && this.isValidNumber(this.precio))
+      if(this.isValidString(this.nombre, this.simbolo) && this.isValidNumber(this.precioActual))
         {
           return true;
         }
@@ -26,4 +26,8 @@ export class Anuncio {
       const numeros = args.map(arg=>parseInt(arg)); 
       return numeros.every(numero => typeof numero === 'number' && !isNaN(numero) && numero > 0);
     };
+
+    /* isValidaDate(...args){
+
+    } */
   }

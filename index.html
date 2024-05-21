@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,13 @@
     <link rel="stylesheet" href="./styles/newStyles.css">
     <script src="./scripts/scripts_async.js" type="module"></script>
     <script src="./scripts/spinner.js" type="module"></script>
-    <title>ABM y Form</title>
+    <link rel="icon" href="./images/logo.svg" type="image/x-icon">
+    <title>Crispy Coins</title>
 </head>
 
 <body>
-    <header id="header">
-    </header>
+    <header id="header"></header>
+
     <div class="container-sections">
         <section>
             <fieldset>Informacion de la moneda
@@ -35,11 +37,11 @@
                     </div>
 
                     <div class="form-group">
-                            <label for="opciones">Tipo de Consumo</label>
-                            <select name="opciones" id="opciones">
-                                <option value="opcion1" selected>Seleccione Opcion</option>
-                                <option value="opcion2">Proof of Work</option>
-                                <option value="opcion3">Proof of Stake</option>
+                            <label for="opciones">Tipo de Consenso</label>
+                            <select name="consenso" id="consenso">
+                                <option value="" selected>Seleccione Opcion</option>
+                                <option value="Proof of Work">Proof of Work</option>
+                                <option value="Proof of Stake">Proof of Stake</option>
                             </select>
                     </div>
 
@@ -49,12 +51,12 @@
 
                     <div class="form-group">
                         <label for="opciones">Algoritmo:</label>
-                        <select name="opciones" id="opciones">
-                            <option value="opcion1" selected>Seleccione Opcion</option>
-                            <option value="opcion2">SHA-256</option>
-                            <option value="opcion3">Ethash</option>
-                            <option value="opcion4">Script</option>
-                            <option value="opcion5">X11</option>
+                        <select name="algoritmo" id="algoritmo">
+                            <option value="" selected>Seleccione Opcion</option>
+                            <option value="SHA-256">SHA-256</option>
+                            <option value="Ethash">Ethash</option>
+                            <option value="Script">Script</option>
+                            <option value="X11">X11</option>
                         </select>
                     </div>
 
@@ -72,7 +74,7 @@
     </div>
 
     <div id="spinner" class="spinner">
-        <img src="./images/wheel.png" alt="Spinner" class="spinner-img">
+        <img src="./images/logo.svg" alt="Spinner Logo" class="spinner-img">
     </div>
 
     <div class="container-table flex">
@@ -80,25 +82,26 @@
             <thead>
                 <tr class="flex" data-id="">
                     <th>ID</th>
-                    <th>Titulo</th>
-                    <th>Transaccion</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>Puertas</th>
-                    <th>Kilometros</th>
-                    <th>Potencia</th>
+                    <th>Nombre</th>
+                    <th>Simbolo</th>
+                    <th>Fecha Creacion</th>
+                    <th>Precio Actual</th>
+                    <th>Consenso</th>
+                    <th>Cantidad Circulacion</th>
+                    <th>Algoritmo</th>
+                    <th>Sitio Web</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
                 </tr>
             </thead>
 
-            <tbody>
-                <!--    ACA VOY A COMPLETAR LA INFO DINAMICAMENTE DEL LOCAL STORAGE -->
-            </tbody>
+            <tbody></tbody>
+
         </table>
         <button type="button" id="btn-delete-all" class="btn">Borrar todo</button>
     </div>
 
-    <footer id="footer">
-    </footer>
+    <footer id="footer"></footer>
 
 </body>
 </html>

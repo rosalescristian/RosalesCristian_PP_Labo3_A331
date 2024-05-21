@@ -10,11 +10,14 @@ header {
     padding: 20px 20px;
     background-color: #333;
     color: #fff;
+    background-image: url(../images/background.jpeg);
     background-repeat: no-repeat;
     background-position: center center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 30vh;
+    color: white;
 }
 
 header nav ul {
@@ -32,39 +35,17 @@ header nav ul li {
 
 header nav ul li a {
     color: white;
+    font-style: bold;
     text-decoration: none;
 }
 
-/* footer {
-    display: flex;
+.logo {
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    background-color: #333;
-    padding: 20px;
-
+    top: 0;
+    left: 0;
+    margin: 20px;
+    size: 5px;
 }
-
-footer nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    list-style: none;
-    padding: 0;
-    margin: 0 0 10px 0;
-}
-
-footer nav ul li {
-    margin: 0 10px;
-}
-
-footer nav ul li a {
-    color: white;
-    text-decoration: none;
-} */
 
 footer {
     width: 100%;
@@ -93,7 +74,9 @@ footer nav ul li a {
     color: white;
     text-decoration: none;
 }
-.container-sections, .container-table {
+
+.container-sections,
+.container-table {
     width: 90%;
     margin: 20px auto;
     max-width: 1200px;
@@ -119,7 +102,7 @@ form {
 .form-group input[type="checkbox"],
 .form-group button {
     display: block;
-    width: 100%;
+    width: calc(33.33% - 10px);
     margin-top: 5px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -132,27 +115,18 @@ form {
 }
 
 .form-group button {
+    cursor: pointer;
+}
+
+.form-group button.btn-save {
     background-color: #4CAF50;
     color: white;
-    cursor: pointer;
 }
 
-.form-group button:hover {
-    background-color: #45a049;
-}
-
-button.btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #f44336;
+.form-group button.btn-cancel,
+.form-group button.btn-delete {
+    background-color: #ccc;
     color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button.btn:hover {
-    background-color: #e53935;
 }
 
 .table-items {
@@ -161,7 +135,8 @@ button.btn:hover {
     margin-top: 20px;
 }
 
-.table-items th, .table-items td {
+.table-items th,
+.table-items td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
@@ -194,7 +169,8 @@ button.btn:hover {
     animation: spin 3s linear infinite;
 }
 
-.btn-editar, .btn-borrar {
+.btn-editar,
+.btn-borrar {
     padding: 5px 10px;
     margin: 0 5px;
     border: none;
@@ -211,68 +187,29 @@ button.btn:hover {
     color: white;
 }
 
+.btn-delete-all {
+    width: calc(33.33% - 10px);
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-delete-all:hover {
+    background-color: #e53935;
+}
 
 @keyframes spin {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
 }
-
-/* Responsive */
-/* @media (max-width: 768px) {
-    header {
-        align-items: center;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header nav ul li {
-        margin: 10px 0;
-    }
-
-    .form-group {
-        margin-bottom: 10px;
-    }
-
-    .form-group label, .form-group input {
-        width: 100%;
-    }
-
-    .container-table {
-        overflow-x: auto;
-    }
-
-    .table-items th, .table-items td {
-        padding: 5px;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        padding: 10px;
-    }
-
-    .form-group input[type="text"],
-    .form-group input[type="number"],
-    .form-group input[type="checkbox"],
-    .form-group button {
-        padding: 8px;
-    }
-
-    button.btn {
-        padding: 8px;
-    }
-
-    .table-items th, .table-items td {
-        padding: 4px;
-    }
-} */
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -294,7 +231,8 @@ button.btn:hover {
         margin-bottom: 10px;
     }
 
-    .form-group label, .form-group input {
+    .form-group label,
+    .form-group input {
         width: 100%;
     }
 
@@ -302,7 +240,8 @@ button.btn:hover {
         overflow-x: auto;
     }
 
-    .table-items th, .table-items td {
+    .table-items th,
+    .table-items td {
         padding: 5px;
     }
 }
@@ -323,7 +262,8 @@ button.btn:hover {
         padding: 8px;
     }
 
-    .table-items th, .table-items td {
+    .table-items th,
+    .table-items td {
         padding: 4px;
     }
 }
