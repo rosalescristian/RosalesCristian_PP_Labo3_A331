@@ -4,7 +4,7 @@ export class CryptoBase {
       this.id = id;
       this.nombre = nombre;
       this.simbolo = simbolo;
-      this.fechaCreacion = fechaCreacion; //CREAR VALIDACION DE FECHA
+      this.fechaCreacion = fechaCreacion;
       this.precioActual = precioActual;
     }
   
@@ -26,8 +26,4 @@ export class CryptoBase {
       const numeros = args.map(arg=>parseInt(arg)); 
       return numeros.every(numero => typeof numero === 'number' && !isNaN(numero) && numero > 0);
     };
-
-    /* isValidaDate(...args){
-
-    } */
   }

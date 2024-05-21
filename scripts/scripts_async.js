@@ -118,16 +118,12 @@ function editarRegistro(id) {
         formulario.querySelector("#id").value = item.id;
         formulario.querySelector("#nombre").value = item.nombre;
         formulario.querySelector("#simbolo").value = item.simbolo;
-        //formulario.querySelector("#fechaCreacion").value = item.fechaCreacion;
         formulario.querySelector("#precioActual").value = item.precioActual;
-        //formulario.querySelector("#consenso").value = item.consenso;
         formulario.querySelector("#cantidad").value = item.cantidad;
-        //formulario.querySelector("#algoritmo").value = item.algoritmo;
         formulario.querySelector("#web").value = item.web;
         
         const nombre = formulario.querySelector("#nombre").value;
         const simbolo = formulario.querySelector("#simbolo").value;
-        //const fechaCreacion = new Date().toLocaleDateString();
         const precioActual = formulario.querySelector("#precioActual").value;
         const consenso = formulario.querySelector("#consenso").value;
         const cantidad = formulario.querySelector("#cantidad").value;
@@ -213,8 +209,6 @@ function escuchandoFormulario() {
         const algoritmo = formulario.querySelector("#algoritmo").value;
         const web = formulario.querySelector("#web").value;
         
-        //console.log(id, nombre, simbolo, fechaCreacion, precioActual, consenso, cantidad,algoritmo,web);
-
         // Buscar si ya existe un elemento con el mismo id
         const modelIndex = items.findIndex((item) => item.id == id);
         
@@ -308,7 +302,6 @@ function generarNavBar() {
 
 function generarHTMLHeader() {
     const headerHTML = `
-        <h1>Crispy Cryptos</h1>
         <h2>Administrador de<br>Monedas</h2>`;
     return headerHTML;
 }

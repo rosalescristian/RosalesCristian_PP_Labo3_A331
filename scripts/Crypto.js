@@ -11,8 +11,7 @@ export class Crypto extends CryptoBase{
   
     verify() {
       if( this.isValidString(this.nombre, this.simbolo, this.consenso, this.algoritmo) && 
-          this.isValidNumber(this.precioActual,this.cantidad)/*  &&
-          this.isValidURL(this.web) */)
+          this.isValidNumber(this.precioActual,this.cantidad))
         {
           return true;
         }
@@ -29,16 +28,5 @@ export class Crypto extends CryptoBase{
       const numeros = args.map(arg=>parseInt(arg)); 
       return numeros.every(numero => typeof numero === 'number' && !isNaN(numero) && numero > 0);
     };
-
-    /* isValidURL(...args){
-      if(this.isValidString(this.web)){
-        try {
-          new URL(web);
-          return true;
-      } catch (e) {
-          return false;
-      }
-      }
-    } */
   
 }

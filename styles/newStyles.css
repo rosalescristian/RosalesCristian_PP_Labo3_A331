@@ -48,31 +48,38 @@ header nav ul li a {
 }
 
 footer {
-    width: 100%;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    margin-top: auto;
+    display: flex;
     position: relative;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: #333333;
+    height: 100px;
+    font-size: 15px;
+    text-decoration: none;
 }
 
-footer nav ul {
+footer nav ul{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
+    margin-left: 20px;
+    text-decoration: none;
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
-footer nav ul li {
-    margin: 0 10px;
-}
-
-footer nav ul li a {
+footer nav ul li a{
     color: white;
     text-decoration: none;
+    text-align: center;
+    align-content: left;
+    margin-right: 30px;
+}
+
+footer p {
+    margin-right: 40px;
 }
 
 .container-sections,
@@ -200,6 +207,27 @@ form {
 .btn-delete-all:hover {
     background-color: #e53935;
 }
+
+.form-group button {
+    display: inline-block;
+    width: calc(33.33% - 10px);
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group button.btn-save {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.form-group button.btn-cancel,
+.form-group button.btn-delete {
+    background-color: #ccc;
+    color: white;
+}
+
 
 @keyframes spin {
     0% {
