@@ -308,7 +308,7 @@ function generarHTMLHeader() {
 
 function generarHTMLFooter() {
     const footerHTML = `
-        <p>Todos los derechos reservados 2024 &copy | By Cristian Rosales - UTN : Laboratorio III - 1er Parcial</p>`;
+        <p>Todos los derechos reservados 2024 &copy | By Cristian Rosales - UTN : Laboratorio III - 2do Parcial</p>`;
     return footerHTML;
 }
 
