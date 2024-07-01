@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="./styles/newStyles.css">
-    <script src="./scripts/scripts_async.js" type="module"></script>
-    <script src="./scripts/spinner.js" type="module"></script>
-    <link rel="icon" href="./images/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./frontend/styles/newStyles.css">
+    <script src="./frontend/scripts/scripts_async.js" type="module"></script>
+    <script src="./frontend/scripts/spinner.js" type="module"></script>
+    <link rel="icon" href="./frontend/images/logo.svg" type="image/x-icon">
     <title>Crispy Coins SP</title>
 </head>
 
@@ -77,6 +77,20 @@
         <img src="./images/logo.svg" alt="Spinner Logo" class="spinner-img">
     </div>
 
+    <div class="filter-section">
+        <label for="filtro-algoritmo">Filtrar por Algoritmo:</label>
+        <select name="filtro-algoritmo" id="filtro-algoritmo">
+            <option value="" selected>Seleccione Opcion</option>
+            <option value="SHA-256">SHA-256</option>
+            <option value="Ethash">Ethash</option>
+            <option value="Script">Script</option>
+            <option value="X11">X11</option>
+        </select>
+        <div class="precio-promedio">
+            <p>Promedio de Precio: <span id="precio-promedio">N/A</span></p>
+        </div>
+    </div>
+
     <div class="container-table flex">
         <table id="table-items" class="table-items table-stripped flex">
             <thead>
@@ -100,6 +114,8 @@
         </table>
         <button type="button" id="btn-delete-all" class="btn">Borrar todo</button>
     </div>
+
+
 
     <footer id="footer"></footer>
 
