@@ -1,0 +1,17 @@
+Obtener todos
+method: GET, path '/monedas'
+
+Obtener uno
+method: GET, path '/monedas/ID'
+
+Crear uno
+method: POST, path '/monedas'
+
+Actualizar uno
+method: PUT, path '/monedas/ID'
+
+Eliminar uno
+method: DELETE, path '/monedas/ID'
+
+Eliminar todos
+method: DELETE, path '/monedas'
